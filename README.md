@@ -34,11 +34,13 @@
 - customtkinter
 - colorama
 - openai
+- fontTools
+- Pillow
 
 安装示例（使用 pip）：
 
 ```bash
-pip install selenium pyautogui requests colorama customtkinter openai
+pip install selenium pyautogui requests colorama customtkinter openai fontTools Pillow
 ```
 
 ## 配置说明
@@ -66,7 +68,7 @@ pip install selenium pyautogui requests colorama customtkinter openai
 
 
 ## 下载已打包的文件
-1. [**Github/release**](https://github.com/Mortal004/Xuexitong_shuake/releases)
+1. [**Github/release**](https://github.com/helloboy829/xuexitong/releases)
 2. [ **迅雷网盘**](https://pan.xunlei.com/s/VO_FdZ-t7lDMpGFgLcuH81DTA1?pwd=viah#) 
 3. [**夸克网盘**](https://pan.quark.cn/s/eba634db1544)
 
@@ -90,8 +92,8 @@ pip install selenium pyautogui requests colorama customtkinter openai
 
 如有任何问题或建议，欢迎通过以下方式联系：
 - **Email**:2022865286@qq.com
-- 或在 [GitHub Issues](https://github.com/Mortal004/Xuexitong_shuake/issues) 中留言
-- 或在 [GitHub Discussion](https://github.com/Mortal004/Xuexitong_shuake/discussions) 中交流，不论是脚本的问题、建议、体验、评价都可可以在这分享，期待你的留言
+- 或在 [GitHub Issues](https://github.com/helloboy829/xuexitong/issues) 中留言
+- 或在 [GitHub Discussion](https://github.com/helloboy829/xuexitong/discussions) 中交流，不论是脚本的问题、建议、体验、评价都可可以在这分享，期待你的留言
 
 
 希望这个项目能为你的学习和研究带来帮助，祝你使用愉快！

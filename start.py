@@ -1,4 +1,5 @@
 # Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 # All rights reserved.
 # This software is provided for non-commercial use only.
 # For more information, see the LICENSE file in the root directory of this project.
@@ -472,7 +473,7 @@ class Start:
                 os.remove(os.path.join(folder_path, tiku_file))
             tk.messagebox.showinfo('提示', f'缓存记录文件已成功删除')
 
-        except:
+        except Exception:
             tk.messagebox.showwarning('警告', f'删除失败')
         self.show_question_bank()
 
@@ -855,7 +856,7 @@ class Start:
         # 清空文本框内容
         # self.text_box.delete('1.0', tk.END)
         # 获取最新的Release信息
-        release_url = r'https://api.github.com/repos/Mortal004/Xuexitong_shuake/releases/latest'
+        release_url = r'https://api.github.com/repos/helloboy829/xuexitong/releases/latest'
         try:
             user_agents = [
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
@@ -867,7 +868,7 @@ class Start:
             headers = {
                 "User-Agent": random.choice(user_agents)
             }
-            response = requests.get(release_url, headers=headers)
+            response = requests.get(release_url, headers=headers, timeout=5)
             if response.status_code == 200:
                 release_info = response.json()
                 self.updata_concent=release_info['body']
@@ -1062,7 +1063,7 @@ class Start:
             self.process.stdout.close()
             try:
                 self.process.wait()
-            except:
+            except Exception:
                 pass
             self.text_box.configure(state=tk.DISABLED)
 
@@ -1262,7 +1263,7 @@ class Start:
                     self.font_entry.set(self.account_info['font_type'])
                     self.size_entry.set(self.account_info['font_size'])
                     self.change_font()
-                except:
+                except Exception:
                     pass
         except FileNotFoundError:
             pass

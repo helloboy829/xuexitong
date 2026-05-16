@@ -19,7 +19,7 @@ def check_face(driver,face_url,face_class='popDiv wid640 faceCollectQrPop popCla
                 print(color.red('请按照要求手机扫码进行人脸认证,如有误判将在20秒后默认您已经完成认证'), flush=True)
             time.sleep(1)
             i += 1
-        except:
+        except Exception:
             if i != 0:
                 print(color.red('人脸认证已完成'), flush=True)
                 get_cookie(driver,file_name='face_cookies',course_name=course_name)
@@ -53,7 +53,7 @@ def auto_login_with_cookies(driver,file_name='cookies', url='https://i.chaoxing.
         # driver.delete_all_cookies()
         try:
             cookies = pickle.load(open(rf'task/tool/{file_name}.pkl', 'rb'))
-        except:
+        except Exception:
             return False
         print(color.green('正在尝试自动跳过。。。'),flush=True)
         # 逐个添加cookie
@@ -89,7 +89,7 @@ def auto_login_with_cookies(driver,file_name='cookies', url='https://i.chaoxing.
                 driver.find_element(By.CSS_SELECTOR, f"[class='{face_class}']")
                 print(color.red('跳过人脸认证失败'), flush=True)
                 return False
-            except:
+            except Exception:
                 print(color.green('成功跳过人脸认证'),flush=True)
                 return True
 

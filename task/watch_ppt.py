@@ -1,4 +1,5 @@
 # Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 # All rights reserved.
 # This software is provided for non-commercial use only.
 # For more information, see the LICENSE file in the root directory of this project.
@@ -18,7 +19,7 @@ def __ppt(driver):
         pdf_iframes = driver.find_elements(By.CSS_SELECTOR, '[class="ans-attach-online insertdoc-online-pdf"]')
         pdf_num=len(pdf_iframes)
         all_iframes=[ppt_iframes,pdf_iframes]
-    except:
+    except Exception:
         all_iframes=[ppt_iframes]
     print(color.green(f'已检测到{ppt_num}个PPT'), flush=True)
     for iframes in all_iframes:
@@ -30,7 +31,7 @@ def __ppt(driver):
                 # 定位到该元素的前一个兄弟元素
                 ppt_iframe.find_element(By.XPATH, "preceding-sibling::div[1]")
                 print(color.green("该PPT存在任务点"), flush=True)
-            except:
+            except Exception:
                 print(color.green("该PPT不存在任务点"), flush=True)
                 continue
             #检查任务点是否已完成

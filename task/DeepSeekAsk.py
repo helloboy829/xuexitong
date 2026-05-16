@@ -46,17 +46,18 @@ def DeepSeekAsk(API_KEY, title ,_type):
 
     if 'sk-' in API_KEY:
         message = {"role": "user", "content": prompt}
-        client = OpenAI(api_key=API_KEY, base_url="https://api.deepseek.com")
+        client = OpenAI(api_key=API_KEY, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
         response = client.chat.completions.create(
-            model="deepseek-chat",
+            model="qwen3.6-27b",
             messages=[message],
+            extra_body={"thinking": {"type": "disabled"}},
             temperature=1.3,
             stream=False
         )
         answer = response.choices[0].message.content
         print(answer)
     else:
-        print(color.red('请输入正确的deepseek API_KEY'), flush=True)
+        print(color.red('请输入正确的API_KEY'), flush=True)
         return []
     return answer
 

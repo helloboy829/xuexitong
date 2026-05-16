@@ -1,4 +1,5 @@
 # Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 # All rights reserved.
 # This software is provided for non-commercial use only.
 # For more information, see the LICENSE file in the root directory of this project.
@@ -54,13 +55,13 @@ class Answer:
         try:
             self.driver.execute_script("arguments[0].scrollIntoView();",self.test_frame)
 
-        except:
+        except Exception:
             return
         # 判断是否完成任务
         try:
             element = self.frame.find_element(By.XPATH, 'preceding-sibling::div[1]')
             txt = element.get_attribute('aria-label')
-        except:
+        except Exception:
             self.driver.switch_to.frame(self.test_frame)
             self.driver.switch_to.frame('frame_content')
             element = self.driver.find_element(By.CLASS_NAME, 'testTit_status')
@@ -192,7 +193,7 @@ class Answer:
             # 滚动到题目
             self.driver.execute_script("arguments[0].scrollIntoView();", self.questionList0[title_num])
             # pyautogui.scroll(50)
-        except:
+        except Exception:
             pass
         print(color.green(f'正在回答第{title_num + 1}题...'), flush=True)
         answer=self.num_answer_dit[title_num]
@@ -230,7 +231,7 @@ class Answer:
                             print(color.red('已回答，无需重复回答'), flush=True)
                         else:
                             self.all_optionWebElementList[title_num][ans].click()
-                    except:
+                    except Exception:
                         self.all_optionWebElementList[title_num][ans].click()
                 return True
 
@@ -272,11 +273,11 @@ class Answer:
                         continue
                     try:
                         p_element.click()
-                    except:
+                    except Exception:
                         self.driver.execute_script("arguments[0].click();", p_element)
                     try:
                         p_element.send_keys(answer[number])
-                    except:
+                    except Exception:
                         pass
                     self.driver.switch_to.parent_frame()
                     time.sleep(1)
@@ -329,12 +330,12 @@ class Answer:
             score = element.text
             f.write(
                 f'已完成:《{title}》章节中的测试题，完成时间：{time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))}\n测试得分：{score}分(本次使用{self.work_choice})\n\n')
-        except:
+        except Exception:
             print(color.yellow('未查询到本次测试成绩'), flush=True)
             try:
                 f.write(
                 f'已完成:《{title}》章节的测试题，完成时间：{time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))}\n测试得分：未查询到(本次使用{self.work_choice})\n\n')
-            except:
+            except Exception:
                 pass
         self.driver.switch_to.default_content()
 
@@ -347,7 +348,7 @@ def finish_quiz(driver, course_name, API, choice):
     for test_frame in test_frames:
         try:
             Answer(driver, test_frame, course_name, API, choice)
-        except:
+        except Exception:
             error_msg = traceback.format_exc()
             send_error(
                 "\n作者只解决打赏用户提交的问题，请在赞助后将截图与报错信息一同发送至作者邮箱2022865286@qq.com,未赞助的用户请自行查看用户须知文件自行解决\n" + error_msg)

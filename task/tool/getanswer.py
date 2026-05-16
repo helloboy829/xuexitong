@@ -1,4 +1,5 @@
 # Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 # All rights reserved.
 # This software is provided for non-commercial use only.
 # For more information, see the LICENSE file in the root directory of this project.
@@ -62,7 +63,7 @@ class GetAnswer:
             answer = answer_text[answer_text.find("】") + 1:]
             #print(f'answer: {answer}')
             return answer,formatted_dict
-        except:
+        except Exception:
 
             #print(f'answer: {answer_text}')
             return answer_text,formatted_dict
@@ -111,7 +112,7 @@ class GetAnswer:
             answer = answer_text[answer_text.find("】") + 1:]
             # print(f'answer: {answer}')
             return answer, formatted_dict
-        except:
+        except Exception:
 
             # print(f'answer: {answer_text}')
             return answer_text, formatted_dict
@@ -164,7 +165,7 @@ class GetAnswer:
             answer = answer_text[answer_text.find("】") + 1:]
             # print(f'answer: {answer}')
             return answer, formatted_dict
-        except:
+        except Exception:
 
             # print(f'answer: {answer_text}')
             return answer_text, formatted_dict
@@ -187,7 +188,7 @@ class GetAnswer:
                 answerList.append(answer1)
                 answer_options_dicts_lst.append(answer_options_dict)
                 break
-            except:
+            except Exception:
                 print(color.yellow('请先使用大学生搜题酱手机APP扫码，然后再点击右上角的剪刀图标，手动拉框第一个题目'),flush=True)
                 time.sleep(3)
                 continue
@@ -199,7 +200,7 @@ class GetAnswer:
                 answerList.append(answer2)
                 answer_options_dicts_lst.append(answer_options_dict)
                 break
-            except:
+            except Exception:
                 print(color.yellow('搜题失败2，请重新搜题，3秒后检测'),flush=True)
                 time.sleep(3)
                 continue
@@ -211,7 +212,7 @@ class GetAnswer:
                 answerList.append(answer3)
                 answer_options_dicts_lst.append(answer_options_dict)
                 break
-            except:
+            except Exception:
                 print(color.yellow('搜题失败3，请重新搜题，3秒后检测'),flush=True)
                 time.sleep(3)
                 continue
@@ -230,7 +231,7 @@ class GetAnswer:
                 break
         try:
             answer=answer.strip()
-        except:
+        except Exception:
             pass
         # 验证获取的答案和题目类型是否相同
         if questionType == "":

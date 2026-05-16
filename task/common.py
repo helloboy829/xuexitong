@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 from selenium.webdriver.common.by import By
 from task.tool import color
 
@@ -30,7 +32,7 @@ class Common:
             self.iframe.find_element(By.XPATH, "preceding-sibling::div[1]")
             print(color.green(f"该{self.type}存在任务点"), flush=True)
             return True
-        except:
+        except Exception:
             print(color.green(f"该{self.type}不存在任务点"), flush=True)
             return False
     def main(self):

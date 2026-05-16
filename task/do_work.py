@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 import time
 from selenium.webdriver.common.by import By
 from task.tool import color
@@ -25,7 +27,12 @@ class do_work(Answer):
         elif self.homework == '手动选择':
             print(color.green('请手动选择你要刷的作业，点开即可'), flush=True)
             now_window_handles = len(driver.window_handles)
+            timeout = 120  # 最多等120秒
+            start_time = time.time()
             while len(driver.window_handles) == now_window_handles:
+                if time.time() - start_time > timeout:
+                    print(color.red('等待超时，强制继续'), flush=True)
+                    break
                 time.sleep(1)
             time.sleep(2)
             self.get_answer_list()
@@ -41,7 +48,7 @@ class do_work(Answer):
         # 作业列dddd表元素
         try:
             element = self.driver.find_element(By.CLASS_NAME, 'bottomList')
-        except:
+        except Exception:
             print(color.red('未检测到作业'), flush=True)
             return
         # 作业列表

@@ -1,4 +1,5 @@
 # Copyright (c) 2025 Mortal004
+# Copyright (c) 2026 Henry
 # All rights reserved.
 # This software is provided for non-commercial use only.
 # For more information, see the LICENSE file in the root directory of this project.
@@ -17,6 +18,6 @@ def send_error(txt):
 if __name__ == '__main__':
     try:
         你好
-    except:
+    except Exception:
         error_msg = traceback.format_exc()
         send_error(error_msg)
